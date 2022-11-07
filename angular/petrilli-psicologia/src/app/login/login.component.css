@@ -1,0 +1,13 @@
+.info {
+    margin: 5%;
+}
+
+.info input {
+    text-align: justify;
+    width: 100vw;
+}
+
+.mat-form-field {
+    width: 80vw;
+    align-items: center;
+}
