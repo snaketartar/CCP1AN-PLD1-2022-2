@@ -13,3 +13,14 @@
 .foto-doutor {
     width: 90vw;
 }
+
+.row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+button {
+    height: 50px;
+    width: 100px;
+}

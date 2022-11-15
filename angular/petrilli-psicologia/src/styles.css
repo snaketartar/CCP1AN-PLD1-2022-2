@@ -5,3 +5,6 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 .mat-toolbar {
     background-color: #d95eff;
 }
+.info {
+    margin: 5%;
+}

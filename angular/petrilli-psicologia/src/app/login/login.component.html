@@ -1,14 +1,14 @@
 <div class="info">
-    <h2>Acesse sua área do paciente</h2>
+    <h2>Acesse sua área pessoal</h2>
     <form [formGroup]="form" (submit)="placeholderLogin()">
-        <mat-form-field> <input matInput type="text" placeholder="user" required formControlName="user"/>
+        <mat-form-field> <input matInput type="text" placeholder="Usuário" required formControlName="user"/>
             <mat-error>Usuário inválido!</mat-error>
         </mat-form-field>
         <br/>
-        <mat-form-field> <input matInput type="password" placeholder="password" required formControlName="password"/>
+        <mat-form-field> <input matInput type="password" placeholder="Senha" required formControlName="password"/>
             <mat-error>Senha inválida!</mat-error>
         </mat-form-field>
         <br/>
-        <button mat-raised-button color="accent">Entrar</button>
+        <button mat-raised-button color="accent">Login</button>
     </form>
 </div>

@@ -14,13 +14,20 @@ import { LoginComponent } from './login/login.component';
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { ReactiveFormsModule } from '@angular/forms';
+import { SignupComponent } from './signup/signup.component';
+import { NgxMaskModule } from 'ngx-mask';
+import { LoggedHomePageComponent } from './logged-home-page/logged-home-page.component';
+import { InitialNavComponent } from './initial-nav/initial-nav.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomePageComponent,
     NavComponent,
-    LoginComponent
+    LoginComponent,
+    SignupComponent,
+    LoggedHomePageComponent,
+    InitialNavComponent
   ],
   imports: [
     BrowserModule,
@@ -34,6 +41,7 @@ import { ReactiveFormsModule } from '@angular/forms';
     MatInputModule,
     MatFormFieldModule,
     ReactiveFormsModule,
+    NgxMaskModule.forRoot(),
   ],
   providers: [],
   bootstrap: [AppComponent]
