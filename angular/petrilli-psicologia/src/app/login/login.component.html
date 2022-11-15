@@ -1,6 +1,6 @@
 <div class="info">
     <h2>Acesse sua área pessoal</h2>
-    <form [formGroup]="form" (submit)="placeholderLogin()">
+    <form [formGroup]="form" (submit)="doLogin()">
         <mat-form-field> <input matInput type="text" placeholder="Usuário" required formControlName="user"/>
             <mat-error>Usuário inválido!</mat-error>
         </mat-form-field>

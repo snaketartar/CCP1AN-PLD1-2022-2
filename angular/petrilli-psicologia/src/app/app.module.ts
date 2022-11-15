@@ -18,6 +18,8 @@ import { SignupComponent } from './signup/signup.component';
 import { NgxMaskModule } from 'ngx-mask';
 import { LoggedHomePageComponent } from './logged-home-page/logged-home-page.component';
 import { InitialNavComponent } from './initial-nav/initial-nav.component';
+import { HttpClientModule } from '@angular/common/http';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 
 @NgModule({
   declarations: [
@@ -31,6 +33,7 @@ import { InitialNavComponent } from './initial-nav/initial-nav.component';
   ],
   imports: [
     BrowserModule,
+    HttpClientModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     MatToolbarModule,
@@ -42,6 +45,7 @@ import { InitialNavComponent } from './initial-nav/initial-nav.component';
     MatFormFieldModule,
     ReactiveFormsModule,
     NgxMaskModule.forRoot(),
+    MatSnackBarModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
