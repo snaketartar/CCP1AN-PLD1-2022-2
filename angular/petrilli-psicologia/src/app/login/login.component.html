@@ -1,0 +1,14 @@
+<div class="info">
+    <h2>Acesse sua área pessoal</h2>
+    <form [formGroup]="form" (submit)="doLogin()">
+        <mat-form-field> <input matInput type="text" placeholder="Usuário" required formControlName="user"/>
+            <mat-error>Usuário inválido!</mat-error>
+        </mat-form-field>
+        <br/>
+        <mat-form-field> <input matInput type="password" placeholder="Senha" required formControlName="password"/>
+            <mat-error>Senha inválida!</mat-error>
+        </mat-form-field>
+        <br/>
+        <button mat-raised-button color="accent">Login</button>
+    </form>
+</div>
