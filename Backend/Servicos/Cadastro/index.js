@@ -1,9 +1,11 @@
 const express = require("express");
 const axios = require('axios');
 const  Cadastro  = require('./model/Cadastro');
+const cors = require("cors");
 
 const app = express();
 app.use(express.json());
+app.use(cors());
 
 const carregaFuncao = async(idUser) =>{
     return await Cadastro.findOne({where:{id:idUser}, attributes:["funcao_clinica"]});

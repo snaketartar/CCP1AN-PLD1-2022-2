@@ -2,8 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { CadastroPost } from '../services/cadastro-post';
 import { Router } from '@angular/router';
-import { LoginApiService } from '../services/login-api.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { CadastroApiService } from '../services/cadastro-api.service';
 
 @Component({
   selector: 'app-signup',
@@ -14,7 +14,7 @@ export class SignupComponent implements OnInit {
 
   form: FormGroup;
 
-  constructor(private router: Router, private api: LoginApiService, private snackBar: MatSnackBar) { }
+  constructor(private router: Router, private api: CadastroApiService, private snackBar: MatSnackBar) { }
 
   ngOnInit(): void {
     this.form = new FormGroup({
@@ -36,7 +36,7 @@ export class SignupComponent implements OnInit {
         validators: [Validators.required]
       }),
       user: new FormControl(null, {
-        validators: [Validators.required]
+        validators: [Validators.required, Validators.email]
       }),
       password: new FormControl(null, {
         validators: [Validators.required, Validators.minLength(8)]
