@@ -1,10 +1,11 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { HistoricoComponent } from './historico/historico.component';
 import { HomePageComponent } from './home-page/home-page.component';
 import { InitialNavComponent } from './initial-nav/initial-nav.component';
-import { LoggedHomePageComponent } from './logged-home-page/logged-home-page.component';
 import { LoginComponent } from './login/login.component';
 import { NavComponent } from './nav/nav.component';
+import { NovaConsultaComponent } from './nova-consulta/nova-consulta.component';
 import { SignupComponent } from './signup/signup.component';
 
 const routes: Routes = [
@@ -27,12 +28,16 @@ const routes: Routes = [
     ]
   },
   {
-  path: 'loggedHome',
+  path: 'historicoConsulta/:idUser',
   component: NavComponent,
   children: [
     {
-      path: 'loggedHome',
-      component: LoggedHomePageComponent
+      path: 'historicoConsulta/:idUser',
+      component: HistoricoComponent
+    },
+    {
+      path: 'novaConsulta/:idUser',
+      component: NovaConsultaComponent
     },
   ]
 }];

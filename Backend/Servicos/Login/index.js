@@ -35,11 +35,11 @@ app.post("/login", async (req, res) => {
         res.status(200).send({msg:"Login inexistente!"});
     }
 
-    if(!user.senha_user == senha){
+    if(!user.senha_user != senha){
         res.status(200).send({msg:"Senha incorreta!"})
     }
 
-    req.session.idUser = user.id_user;
+    //req.session.idUser = user.id_user;
 
     await axios.post("http://localhost:1000/eventos", {
         tipo: "LoginRealizado",

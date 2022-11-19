@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { LoggedHomePageComponent } from './logged-home-page.component';
+import { NovaConsultaComponent } from './nova-consulta.component';
 
-describe('LoggedHomePageComponent', () => {
-  let component: LoggedHomePageComponent;
-  let fixture: ComponentFixture<LoggedHomePageComponent>;
+describe('NovaConsultaComponent', () => {
+  let component: NovaConsultaComponent;
+  let fixture: ComponentFixture<NovaConsultaComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ LoggedHomePageComponent ]
+      declarations: [ NovaConsultaComponent ]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(LoggedHomePageComponent);
+    fixture = TestBed.createComponent(NovaConsultaComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

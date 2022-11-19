@@ -1,0 +1,25 @@
+.card {
+    margin: 10px;
+    background-color: #CCCCFF;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.titulo {
+    margin-top: 3%;
+    margin-bottom: 3%;
+    display: flex;
+    justify-content: space-around;
+}
+
+.info {
+    display: flex;
+}
+
+.nome {
+    font-weight: 700;
+}
+
+.motivo {
+    text-align: justify;
+    width: 100%;
+}
