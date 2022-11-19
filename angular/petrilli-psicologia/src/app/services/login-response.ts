@@ -1,4 +1,4 @@
 export interface LoginResponse {
-    msg: String;
-    id?: String,
+    msg: string;
+    id?: string,
 }

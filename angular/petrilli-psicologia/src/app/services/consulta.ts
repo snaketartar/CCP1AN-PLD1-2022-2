@@ -1,7 +1,7 @@
 export interface Consulta {
-    data: String;
-    motivo: String;
-    id_medico: String;
-    nome_medico: String;
-    id_paciente?: String;
+    data: string;
+    motivo: string;
+    id_medico: string;
+    nome_medico: string;
+    id_paciente?: string;
 }

@@ -2,8 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { ActivatedRoute, ParamMap, Router } from '@angular/router';
-import { LoginApiService } from '../services/login-api.service';
-import { MatOption } from '@angular/material/core';
 import { Medico } from '../services/medico';
 import { GetMedicosService } from '../services/get-medicos.service';
 import { HistoricoApiService } from '../services/historico-api.service';
@@ -18,8 +16,8 @@ export class NovaConsultaComponent implements OnInit {
 
   form: FormGroup;
   medicos: Medico[];
-  id: String;
-  selectedMedico: String;
+  id: string;
+  selectedMedico: string;
 
   constructor(private router: Router,
     private medicosApi: GetMedicosService,

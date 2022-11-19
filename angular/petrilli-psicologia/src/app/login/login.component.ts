@@ -36,6 +36,7 @@ export class LoginComponent implements OnInit {
     this.api.post(userPost).subscribe(
       response => {
         if (response.status == 200 && response.body['idUser'] != null) {
+          console.log(response.body['idUser']);
           this.router.navigate(['historicoConsulta', response.body['idUser']]);
         } else  {
           this.snackBar.open(response.body['msg'], 'Fechar', {
@@ -49,16 +50,3 @@ export class LoginComponent implements OnInit {
   }
 
 }
-// {
-//   next: (data) => {
-//     if(data)
-//     this.router.navigate(['historicoConsulta']);
-//   },
-//   error: () => {
-//     this.snackBar.open('Aconteceu um erro, tente novamente mais tarde!', 'Fechar', {
-//       duration: 5000,
-//       horizontalPosition: 'center',
-//       verticalPosition: 'top',
-//     });
-//   }
-//  }

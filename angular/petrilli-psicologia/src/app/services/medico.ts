@@ -1,4 +1,4 @@
 export interface Medico {
-    id: String,
-    nome: String,
+    id: string,
+    nome: string,
 }

@@ -17,6 +17,6 @@ export class LoginApiService {
   constructor(private http: HttpClient) { }
 
   public post(user: UserPost): Observable<HttpResponse<any>> {
-     return this.http.post<LoginResponse>('http://localhost:2000/login', user, { observe: 'response' });
+     return this.http.post('http://localhost:2000/login', user, { observe: 'response' });
   }
 }
