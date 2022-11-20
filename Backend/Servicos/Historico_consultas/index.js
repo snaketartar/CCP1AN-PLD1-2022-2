@@ -21,6 +21,22 @@ app.get("/historicoConsultasPaciente", async(req, res) => {
     res.status(200).send({historico})
 })
 
+app.post("/marcandoConsulta", async(req, res)=>{
+    let {nomePaciente, nomeMedico, dataMarcada} = req.body;
+
+    try {
+        await HistoricoConsultas.create({
+            nome_medico:nomeMedico,
+            nome_paciente: nomePaciente,
+            data_atendimento: dataMarcada
+        });
+
+        res.status(200).send({msg:"Consulta marcada."});
+    } catch (error) {
+        res.status(200).send({msg:"Problema ao marcar a consulta."});
+    }
+})
+
 app.post("/", async (req, res) => {
     await axios.post('http://localhost:1000/eventos', {
         tipo: 'RelatorioCriado',

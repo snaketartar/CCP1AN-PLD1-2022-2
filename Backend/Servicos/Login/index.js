@@ -32,20 +32,22 @@ app.post("/login", async (req, res) => {
     if(user == null || undefined){
         res.status(200).send({msg:"Login inexistente!"});
     }
-
-    if(!user.senha_user == senha){
-        res.status(200).send({msg:"Senha incorreta!"})
+    else {
+        if(!(user.senha_user == senha)){
+            res.status(200).send({msg:"Senha incorreta!"})
+        }
+        else{
+            await axios.post("http://localhost:1000/eventos", {
+            tipo: "LoginRealizado",
+            dados: {
+                idUser: user.id_user
+            },
+        })
+        res.status(200).send({msg:"Login válido", idUser: user.id_user})
+        }
     }
 
-    req.session.idUser = user.id_user;
 
-    await axios.post("http://localhost:1000/eventos", {
-        tipo: "LoginRealizado",
-        dados: {
-          idUser: user.id_user
-        },
-    })
-    res.status(200).send({msg:"Login válido", idUser: user.id_user})
 })
 
 app.post('/eventos', (req, res) => {
