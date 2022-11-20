@@ -54,13 +54,18 @@ app.post("/cadastro", async (req, res) => {
     res.status(201).send({mensagem});
 });
 
+app.get("/carregaMedicos", async (req, res) =>{
+    let medicos = Cadastro.findAll({where:{funcao_clinica:"medico"}, attributes:["id","nome"]});
+
+    res.status(201).send(medicos)
+})
+
 app.post('/eventos', (req, res) => {
     let evento = req.body;
 
     switch(evento.tipo){
         case("LoginRealizado"):
                 let funcao = carregaFuncao(evento.dados.idUser);
-                req.session.funcao = funcao.funcao_clinica;
                 res.status(200).send({msg:"Ok", funcao:funcao.funcao_clinica});
             break;
         default:
