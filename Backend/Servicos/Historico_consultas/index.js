@@ -16,8 +16,8 @@ app.get("/historicoConsultasMedico", async(req, res) => {
 app.get("/historicoConsultasPaciente", async(req, res) => {
     let {nomePaciente} = req.body;
 
-    let historico = await HistoricoConsultas.findAll({where:{nome_paciente:nomePaciente}, attributes:["nome_medico","data_atendimento"]});
-
+    let historico = await HistoricoConsultas.findAll({where:{nome_paciente:nomePaciente}, attributes:["nome_medico","data_atendimento"]})
+    .then(data => data.map( item => item.toJSON()));
     res.status(200).send({historico})
 })
 
