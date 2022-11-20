@@ -1,6 +1,6 @@
 .sidenav-container {
     height: 100%;
-    background-color: #e6e6ff;
+    background-color: rgb(211, 242, 255)
 }
 
 .sidenav {
@@ -9,7 +9,7 @@
 
 .sidenav .mat-toolbar {
     background: inherit;
-    background-color: #d95eff89;
+    background-color: rgb(255, 179, 151);
 }
 
 .mat-toolbar.mat-primary {

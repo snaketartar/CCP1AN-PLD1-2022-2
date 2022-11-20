@@ -3,8 +3,12 @@
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 .mat-toolbar {
-    background-color: #d95eff;
+    background-color: rgb(255, 179, 151);
 }
 .info {
     margin: 5%;
+}
+.mat-raised-button {
+    background-color: rgb(151, 226, 255) !important;
+    color: black !important;
 }
