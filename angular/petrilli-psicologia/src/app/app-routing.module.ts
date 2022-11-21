@@ -28,19 +28,14 @@ const routes: Routes = [
     ]
   },
   {
-  path: 'historicoConsulta/:idUser',
-  component: NavComponent,
-  children: [
-    {
-      path: 'historicoConsulta/:idUser',
-      component: HistoricoComponent
-    },
-    {
-      path: 'novaConsulta/:idUser',
-      component: NovaConsultaComponent
-    },
-  ]
-}];
+    path: 'historicoConsulta/:nome',
+    component: HistoricoComponent,
+  },
+  {
+    path: 'novaConsulta/:nome',
+    component: NovaConsultaComponent
+  },
+];
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]

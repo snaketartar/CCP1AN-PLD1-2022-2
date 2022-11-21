@@ -10,8 +10,8 @@ export class HistoricoApiService {
 
   constructor(private http: HttpClient) { }
 
-  public get(id: String): Observable<Consulta[]> {
-    return this.http.get<Consulta[]>(`http://localhost:5000/historico/${ id }`);
+  public get(nome: String): Observable<Consulta[]> {
+    return this.http.get<Consulta[]>(`http://localhost:5000/historicoConsultasPaciente/${ nome }`);
   }
 
   public post(consulta: Consulta): Observable<HttpResponse<any>> {

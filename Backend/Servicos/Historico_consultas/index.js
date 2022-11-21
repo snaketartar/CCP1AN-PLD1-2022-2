@@ -1,20 +1,23 @@
 const express = require("express");
 const axios = require('axios');
 const HistoricoConsultas = require('./Model/Historico_consultas.js');
+const cors = require("cors");
 
 const app = express();
 app.use(express.json());
+app.use(cors());
 
-app.get("/historicoConsultasMedico", async(req, res) => {
-    let {nomeMedico} = req.body;
+
+app.get("/historicoConsultasMedico/:nome", async(req, res) => {
+    let nomeMedico = req.params['nome'];
 
     let historico = await HistoricoConsultas.findAll({where:{nome_medico:nomeMedico}, attributes:["nome_paciente","data_atendimento"]});
 
     res.status(200).send({historico})
 })
 
-app.get("/historicoConsultasPaciente", async(req, res) => {
-    let {nomePaciente} = req.body;
+app.get("/historicoConsultasPaciente/:nome", async(req, res) => {
+    let nomePaciente = req.params['nome'];
 
     let historico = await HistoricoConsultas.findAll({where:{nome_paciente:nomePaciente}, attributes:["nome_medico","data_atendimento"]})
     .then(data => data.map( item => item.toJSON()));

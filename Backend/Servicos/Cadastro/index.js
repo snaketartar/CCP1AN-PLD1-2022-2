@@ -55,7 +55,7 @@ app.post("/cadastro", async (req, res) => {
 });
 
 app.get("/carregaMedicos", async (req, res) =>{
-    let medicos = Cadastro.findAll({where:{funcao_clinica:"medico"}, attributes:["id","nome"]})
+    let medicos = await Cadastro.findAll({where:{funcao_clinica:"medico"}, attributes:["id","nome"]})
     .then(data => data.map( item => item.toJSON()));
 
     res.status(201).send(medicos)

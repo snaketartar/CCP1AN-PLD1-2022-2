@@ -16,7 +16,7 @@ export class NovaConsultaComponent implements OnInit {
 
   form: FormGroup;
   medicos: Medico[];
-  id: string;
+  nome: string;
   selectedMedico: string;
 
   constructor(private router: Router,
@@ -28,20 +28,20 @@ export class NovaConsultaComponent implements OnInit {
   ngOnInit(): void {
     this.route.paramMap.subscribe((paramMap: ParamMap) => {
       if (paramMap.has("idUser")) {
-        this.id = paramMap.get("idUser") ?? "";
+        this.nome = paramMap.get("nome") ?? "";
       }
     });
     this.medicosApi.get().subscribe({
       next: (response) => {
+        console.log(response);
         this.medicos = response ?? [];
+        console.log("medicos");
+        console.log(this.medicos);
       }
     });
     this.form = new FormGroup({
       medico: new FormControl(null, {
         validators: [Validators.required]
-      }),
-      motivo: new FormControl(null, {
-        validators: [Validators.required, Validators.minLength(20)]
       }),
       dateOfBirth: new FormControl(null, {
         validators: [Validators.required]
@@ -52,16 +52,14 @@ export class NovaConsultaComponent implements OnInit {
   addConsulta(): void {
     if (this.form.invalid) return;
     const novaConsulta: Consulta = {
-      data: this.form.value.data,
-      motivo: this.form.value.motivo,
-      id_medico: this.form.value.id,
       nome_medico: this.selectedMedico,
-      id_paciente: this.id,
+      nome_paciente: this.nome,
+      data_atendimento: this.form.value.data,
     }
     this.historicoApi.post(novaConsulta).subscribe(
       response => {
         if (response.status == 200 && response.body['idUser'] != null) {
-          this.router.navigate(['historicoConsulta', response.body['idUser']]);
+          this.router.navigate(['historicoConsulta', this.nome]);
         } else  {
           this.snackBar.open(response.body['msg'], 'Fechar', {
             duration: 5000,

@@ -11,6 +11,6 @@ export class GetMedicosService {
   constructor(private http: HttpClient) { }
 
   public get(): Observable<Medico[]> {
-    return this.http.get<Medico[]>("http://localhost:6000/medicos");
+    return this.http.get<Medico[]>("http://localhost:4000/carregaMedicos");
   }
 }

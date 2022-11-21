@@ -19,10 +19,10 @@ export class LoginComponent implements OnInit {
   ngOnInit(): void {
     this.form = new FormGroup({
       user: new FormControl(null, {
-        validators: [Validators.required, Validators.email]
+        validators: [Validators.required]
       }),
       password: new FormControl(null, {
-        validators: [Validators.required, Validators.minLength(8)]
+        validators: [Validators.required]
       }),
     })
   }
@@ -36,8 +36,7 @@ export class LoginComponent implements OnInit {
     this.api.post(userPost).subscribe(
       response => {
         if (response.status == 200 && response.body['idUser'] != null) {
-          console.log(response.body['idUser']);
-          this.router.navigate(['historicoConsulta', response.body['idUser']]);
+          this.router.navigate(['/historicoConsulta', this.form.value.user]);
         } else  {
           this.snackBar.open(response.body['msg'], 'Fechar', {
             duration: 5000,

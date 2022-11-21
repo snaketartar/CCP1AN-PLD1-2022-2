@@ -11,17 +11,19 @@ import { ActivatedRoute, ParamMap } from '@angular/router';
 export class HistoricoComponent implements OnInit {
 
   listaConsultas: Consulta[] = [];
-  private id: string;
+  public nome: string;
 
-  constructor(private historicoApi: HistoricoApiService, public route: ActivatedRoute) { }
+  constructor(private historicoApi: HistoricoApiService, public route: ActivatedRoute) { 
+  }
 
   ngOnInit(): void {
+    console.log("chegou no historico");
     this.route.paramMap.subscribe((paramMap: ParamMap) => {
       if(paramMap.has("idUser")){
-        this.id = paramMap.get("idUser") ?? "";
+        this.nome = paramMap.get("idUser") ?? "";
       }
     });
-    this.historicoApi.get(this.id).subscribe({
+    this.historicoApi.get(this.nome).subscribe({
       next: (response) => {
         this.listaConsultas = response ?? [];
       }

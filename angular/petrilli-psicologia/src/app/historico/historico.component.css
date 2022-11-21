@@ -1,0 +1,27 @@
+.info {
+    margin: 5%;
+    background-color: rgb(255, 179, 151);
+    padding: 20px;
+    border-radius: 6px;
+    border-style: solid;
+}
+.center {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: rgb(238, 249, 255);
+}
+.mat-toolbar {
+    background: rgb(255, 179, 151);
+}
+
+@media (min-width: 700px) {     
+    .info {
+        width: 40%;
+        text-align: center;
+    }
+
+    .center {
+        text-align: center;
+    }
+}
