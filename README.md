@@ -1,6 +1,6 @@
 # Petrilli Psicologia - CCP1AN-PLD1-2022-2 
 
-Esse site foi desenvolvido por 5 estudantes da faculdade São Judas Tadeu, graduandos de ciência da computação.
+Esse site foi desenvolvido por 5 estudantes da faculdade São Judas Tadeu, graduandos de Ciência da Computação.
 
 Linguagens utilizadas no site
 * HTML
