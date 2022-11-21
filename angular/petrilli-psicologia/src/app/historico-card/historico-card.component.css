@@ -14,12 +14,13 @@
 .info {
     display: flex;
 }
-
-.nome {
-    font-weight: 700;
+.card {
+    width: 80vw;
+    background-color: rgb(151, 226, 255);
 }
 
-.motivo {
-    text-align: justify;
-    width: 100%;
+@media (min-width: 700px) {     
+    .card {
+        width: 400px;
+    }
 }

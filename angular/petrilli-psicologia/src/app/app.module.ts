@@ -14,6 +14,7 @@ import { LoginComponent } from './login/login.component';
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule } from '@angular/forms';
 import { SignupComponent } from './signup/signup.component';
 import { NgxMaskModule } from 'ngx-mask';
 import { InitialNavComponent } from './initial-nav/initial-nav.component';
@@ -24,6 +25,7 @@ import { HistoricoCardComponent } from './historico-card/historico-card.componen
 import { MatCardModule } from '@angular/material/card';
 import { NovaConsultaComponent } from './nova-consulta/nova-consulta.component';
 import { MatOptionModule } from '@angular/material/core';
+import { MatSelectModule } from '@angular/material/select';
 
 @NgModule({
   declarations: [
@@ -50,10 +52,12 @@ import { MatOptionModule } from '@angular/material/core';
     MatInputModule,
     MatFormFieldModule,
     ReactiveFormsModule,
+    FormsModule,
     NgxMaskModule.forRoot(),
     MatSnackBarModule,
     MatCardModule,
     MatOptionModule,
+    MatSelectModule
   ],
   providers: [],
   bootstrap: [AppComponent]

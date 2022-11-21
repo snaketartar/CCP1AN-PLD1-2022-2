@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Consulta } from '../services/consulta';
 import { HistoricoApiService } from '../services/historico-api.service';
 import { ActivatedRoute, ParamMap } from '@angular/router';
+import { ConsultaListada } from '../services/consulta-listada';
 
 @Component({
   selector: 'app-historico',
@@ -10,7 +11,7 @@ import { ActivatedRoute, ParamMap } from '@angular/router';
 })
 export class HistoricoComponent implements OnInit {
 
-  listaConsultas: Consulta[] = [];
+  listaConsultas: ConsultaListada[] = [];
   public nome: string;
 
   constructor(private historicoApi: HistoricoApiService, public route: ActivatedRoute) { 
@@ -19,13 +20,14 @@ export class HistoricoComponent implements OnInit {
   ngOnInit(): void {
     console.log("chegou no historico");
     this.route.paramMap.subscribe((paramMap: ParamMap) => {
-      if(paramMap.has("idUser")){
-        this.nome = paramMap.get("idUser") ?? "";
+      if(paramMap.has("nome")){
+        this.nome = paramMap.get("nome") ?? "";
       }
     });
     this.historicoApi.get(this.nome).subscribe({
       next: (response) => {
-        this.listaConsultas = response ?? [];
+        console.log(response);
+        this.listaConsultas = response.historico ?? [];
       }
     });
   }

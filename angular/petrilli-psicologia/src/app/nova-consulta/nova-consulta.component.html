@@ -2,15 +2,16 @@
     <h2>Adicione uma nova consulta</h2>
     <form [formGroup]="form" (submit)="addConsulta()">
         <mat-form-field> 
-            <mat-select [(ngModel)]="selectedMedico" formControlName="medico">
-                <mat-option *ngFor="let medico of medicos" [value]="medico.id">
+            <mat-label>Médicos</mat-label>
+            <mat-select formControlName="medico">
+                <mat-option *ngFor="let medico of medicos" [value]="medico.nome">
                   {{medico.nome}}
                 </mat-option>
               </mat-select>
             <mat-error>Médico inválido!</mat-error>
         </mat-form-field>
         <br/>
-        <mat-form-field> <input matInput type="date" placeholder="Data de Nascimento" required formControlName="dateOfBirth"/>
+        <mat-form-field> <input matInput type="date" placeholder="Data da consulta" required formControlName="data"/>
             <mat-error>Data inválida!</mat-error>
         </mat-form-field>
         <br/>

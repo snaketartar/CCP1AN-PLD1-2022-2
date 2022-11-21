@@ -19,6 +19,8 @@ app.get("/historicoConsultasMedico/:nome", async(req, res) => {
 app.get("/historicoConsultasPaciente/:nome", async(req, res) => {
     let nomePaciente = req.params['nome'];
 
+    console.log(await HistoricoConsultas.findAll({where:{nome_paciente:nomePaciente}, attributes:["nome_medico","data_atendimento"]})
+    .then(data => data.map( item => item.toJSON())));
     let historico = await HistoricoConsultas.findAll({where:{nome_paciente:nomePaciente}, attributes:["nome_medico","data_atendimento"]})
     .then(data => data.map( item => item.toJSON()));
     res.status(200).send({historico})
@@ -26,6 +28,9 @@ app.get("/historicoConsultasPaciente/:nome", async(req, res) => {
 
 app.post("/marcandoConsulta", async(req, res)=>{
     let {nomePaciente, nomeMedico, dataMarcada} = req.body;
+    console.log(req.body);
+    console.log("definidos");
+    console.log({nomePaciente, nomeMedico, dataMarcada});
 
     try {
         await HistoricoConsultas.create({
@@ -36,6 +41,7 @@ app.post("/marcandoConsulta", async(req, res)=>{
 
         res.status(200).send({msg:"Consulta marcada."});
     } catch (error) {
+        console.log(error);
         res.status(200).send({msg:"Problema ao marcar a consulta."});
     }
 })

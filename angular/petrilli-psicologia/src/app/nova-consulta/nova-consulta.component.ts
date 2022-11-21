@@ -15,9 +15,8 @@ import { Consulta } from '../services/consulta';
 export class NovaConsultaComponent implements OnInit {
 
   form: FormGroup;
-  medicos: Medico[];
+  medicos: Medico[] = [];
   nome: string;
-  selectedMedico: string;
 
   constructor(private router: Router,
     private medicosApi: GetMedicosService,
@@ -27,23 +26,24 @@ export class NovaConsultaComponent implements OnInit {
 
   ngOnInit(): void {
     this.route.paramMap.subscribe((paramMap: ParamMap) => {
-      if (paramMap.has("idUser")) {
+      if (paramMap.has("nome")) {
         this.nome = paramMap.get("nome") ?? "";
       }
     });
     this.medicosApi.get().subscribe({
       next: (response) => {
         console.log(response);
-        this.medicos = response ?? [];
+        response.map((item) => this.medicos.push(item));
         console.log("medicos");
         console.log(this.medicos);
+        console.log(typeof this.medicos)
       }
     });
     this.form = new FormGroup({
       medico: new FormControl(null, {
         validators: [Validators.required]
       }),
-      dateOfBirth: new FormControl(null, {
+      data: new FormControl(null, {
         validators: [Validators.required]
       }),
     })
@@ -52,9 +52,9 @@ export class NovaConsultaComponent implements OnInit {
   addConsulta(): void {
     if (this.form.invalid) return;
     const novaConsulta: Consulta = {
-      nome_medico: this.selectedMedico,
-      nome_paciente: this.nome,
-      data_atendimento: this.form.value.data,
+      nomeMedico: this.form.value.medico,
+      nomePaciente: this.nome,
+      dataMarcada: this.form.value.data,
     }
     this.historicoApi.post(novaConsulta).subscribe(
       response => {

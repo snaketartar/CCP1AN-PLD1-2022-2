@@ -1,6 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { Consulta } from '../services/consulta';
-import { MatCardModule } from '@angular/material/card';
+import { ConsultaListada } from '../services/consulta-listada';
+import { formatDate } from '@angular/common';
 
 @Component({
   selector: 'app-historico-card',
@@ -9,7 +9,7 @@ import { MatCardModule } from '@angular/material/card';
 })
 export class HistoricoCardComponent implements OnInit {
 
-  @Input() consulta: Consulta | undefined;
+  @Input() consulta: ConsultaListada;
 
   constructor() { }
 
