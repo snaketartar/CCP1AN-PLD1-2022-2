@@ -1,4 +1,4 @@
-# CCP1AN-PLD1-2022-2
+# Petrilli Psicologia - CCP1AN-PLD1-2022-2 
 
 Esse site foi desenvolvido por 5 estudantes da faculdade São Judas Tadeu, são graduandos do curso de ciência da computação.
 
