@@ -2,11 +2,11 @@
 
 Esse site foi desenvolvido por 5 estudantes da faculdade São Judas Tadeu, graduandos de Ciência da Computação.
 
-Linguagens utilizadas no site
-* HTML
-* CSS
-* JavaScript 
-* Typescript 
+Linguagens utilizadas:
+* HTML;
+* CSS;
+* JavaScript; 
+* Typescript. 
 
 Petrilli Psicologia foi desenvolvido com o objetivo de falar e reforçar a importância da saúde mental na vida de jovens universitários. 
 
