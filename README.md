@@ -2,7 +2,7 @@
 
 Esse site foi desenvolvido por 5 estudantes da faculdade São Judas Tadeu, são graduandos do curso de ciência da computação.
 
-Linguages utilizadas no site
+Linguagens utilizadas no site
 * HTML
 * CSS
 * Java Script 
