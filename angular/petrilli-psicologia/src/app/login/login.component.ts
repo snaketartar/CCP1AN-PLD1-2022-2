@@ -18,33 +18,34 @@ export class LoginComponent implements OnInit {
 
   ngOnInit(): void {
     this.form = new FormGroup({
-      user: new FormControl (null, {
-        validators: [Validators.required, Validators.email]
+      user: new FormControl(null, {
+        validators: [Validators.required]
       }),
-      password: new FormControl (null, {
-        validators: [Validators.required, Validators.minLength(8)]
+      password: new FormControl(null, {
+        validators: [Validators.required]
       }),
     })
   }
 
   doLogin(): void {
-   if(this.form.invalid) return;
-   const userPost: UserPost = {
-    login: this.form.value.user,
-    senha: this.form.value.password
-   };
-   this.api.post(userPost).subscribe({
-    next: () => {
-      this.router.navigate(['loggedHome']);
-    },
-    error: () => {
-      this.snackBar.open('Aconteceu um erro, tente novamente mais tarde!', 'Fechar', {
-        duration: 5000,
-        horizontalPosition: 'center',
-        verticalPosition: 'top',
-      });
-    }
-   })
+    if (this.form.invalid) return;
+    const userPost: UserPost = {
+      login: this.form.value.user,
+      senha: this.form.value.password
+    };
+    this.api.post(userPost).subscribe(
+      response => {
+        if (response.status == 200 && response.body['idUser'] != null) {
+          this.router.navigate(['/historicoConsulta', this.form.value.user]);
+        } else  {
+          this.snackBar.open(response.body['msg'], 'Fechar', {
+            duration: 5000,
+            horizontalPosition: 'center',
+            verticalPosition: 'top',
+          });
+        }
+      }
+    )
   }
 
 }

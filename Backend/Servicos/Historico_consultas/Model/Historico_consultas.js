@@ -1,7 +1,7 @@
 const {Sequelize, DataTypes} = require('sequelize');
 require('dotenv').config();
 
-const sequelize = new Sequelize(process.env.DB_CADASTRO, process.env.DB_USER, process.env.DB_PASSWORD,{
+const sequelize = new Sequelize(process.env.DB_HISTORICO, process.env.DB_USER, process.env.DB_PASSWORD,{
     host:process.env.DB_HOST,
     dialect: "mysql"
 });
@@ -15,7 +15,7 @@ const HistoricoConsultas = sequelize.define('tb_historico_consultas',{
         type: DataTypes.STRING,
         allowNull: false
     },
-    ultimo_atendimento:{
+    data_atendimento:{
         type: DataTypes.DATE,
         allowNull: false
     },

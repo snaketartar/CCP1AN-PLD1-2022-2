@@ -4,6 +4,7 @@ import { CadastroPost } from '../services/cadastro-post';
 import { Router } from '@angular/router';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { CadastroApiService } from '../services/cadastro-api.service';
+import { MatFormField } from '@angular/material/form-field';
 
 @Component({
   selector: 'app-signup',

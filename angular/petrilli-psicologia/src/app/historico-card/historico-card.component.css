@@ -1,0 +1,26 @@
+.card {
+    margin: 10px;
+    background-color: #CCCCFF;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.titulo {
+    margin-top: 3%;
+    margin-bottom: 3%;
+    display: flex;
+    justify-content: space-around;
+}
+
+.info {
+    display: flex;
+}
+.card {
+    width: 80vw;
+    background-color: rgb(151, 226, 255);
+}
+
+@media (min-width: 700px) {     
+    .card {
+        width: 400px;
+    }
+}

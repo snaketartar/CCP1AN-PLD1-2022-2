@@ -1,5 +1,10 @@
 .info {
-    margin: 5%;
+    background-color: rgb(255, 179, 151);
+    padding: 20px;
+    width: 80%;
+    border-radius: 6px;
+    border-style: solid;
+    border-radius:10px;
 }
 
 .info h2 {
@@ -11,7 +16,7 @@
 }
 
 .foto-doutor {
-    width: 90vw;
+    width: 80vw;
 }
 
 .row {
@@ -20,7 +25,26 @@
     align-items: center;
 }
 
-button {
+.button {
     height: 50px;
     width: 100px;
+}
+.center {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+@media (min-width: 700px) { 
+    .info {
+        width:40%;
+        margin-top: 20px;
+        margin-bottom: 10px;
+    }
+    .foto-doutor {
+        width: 90%;
+    }
+    .center {
+        text-align: center;
+    }
 }

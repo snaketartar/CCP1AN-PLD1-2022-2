@@ -1,0 +1,10 @@
+
+<mat-toolbar>
+    <p>Petrilli Psicologia</p>
+</mat-toolbar>
+
+<main class="center">
+    <h2>Consultas</h2>
+    <app-nova-consulta></app-nova-consulta>
+    <app-historico-card *ngFor="let consulta of listaConsultas" [consulta]="consulta"></app-historico-card>
+</main>
